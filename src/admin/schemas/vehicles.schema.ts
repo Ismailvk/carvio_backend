@@ -10,7 +10,7 @@ export class Vehicles extends Document {
   price: number;
 
   @Prop()
-  model: number;
+  manuDate: number;
 
   @Prop()
   transmission: string;

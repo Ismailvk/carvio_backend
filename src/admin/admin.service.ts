@@ -264,14 +264,14 @@ export class AdminService {
     @Req() req: Request,
   ) {
     try {
-      const { name, brand, model, transmission, fuel, price, location } =
+      const { name, brand, manuDate, transmission, fuel, price, location } =
         createVehicle;
       const cookie = req.cookies['jwtAdmin'];
       const claims = this.jwtservice.verify(cookie);
       const newVehicle = await this.vehicleModel.create({
         name,
         transmission,
-        model,
+        manuDate,
         fuel,
         brand,
         price,
@@ -432,11 +432,11 @@ export class AdminService {
     id: string,
   ) {
     try {
-      const { name, brand, model, transmission, fuel, price, location } =
+      const { name, brand, manuDate, transmission, fuel, price, location } =
         editVehicle;
       await this.vehicleModel.findOneAndUpdate(
         { _id: id },
-        { $set: { name, brand, model, transmission, fuel, price, location } },
+        { $set: { name, brand, manuDate, transmission, fuel, price, location } },
       );
       await this.uploadVehicleImage(files, res, id);
       res.status(200).json({ message: 'Success' });
