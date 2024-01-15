@@ -12,5 +12,6 @@ export const exclude = [
   '/host/verify-otp',
   '/admin/login',
   '/admin/getFile/:filename',
-  '/user/verify-otp'
+  '/user/verify-otp',
+  '/'
 ];
